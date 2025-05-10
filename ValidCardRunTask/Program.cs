@@ -1,4 +1,6 @@
-﻿namespace ValidCardRunTask
+﻿using System.Net.Security;
+
+namespace ValidCardRunTask
 {
     internal class Program
     {
@@ -18,6 +20,30 @@
             int[] cards = dealCards();
             bool gameWon = false;
             // add your code here
+            for (int i = 0; i < 99; i++)
+            {                                      //itterates through the cards for the starting card
+                for (int j = 0; j < 5; j++)        //itterates for 5 cards from the starting card to check
+                {
+                    //Console.WriteLine(cards[j + i]);
+                    if (cards[j + i] == cards[j + i+1]-1)
+                    {
+                        gameWon = true;                      //sets gameWon to true 
+                        //Console.WriteLine(gameWon + "    yes");
+
+                    }
+                    else
+                    {
+                        gameWon = false;                    //Sets gameWon to false so there is no false trues also breaks to start a new itteration
+                        //Console.WriteLine(gameWon + "no");
+                        break;
+                    }
+                }
+                if (gameWon == true)                  //Checks if gameWon is true so the right awnser is displayed
+                {
+                    break;
+                    
+                }
+            }
 
 
             // end of your code
